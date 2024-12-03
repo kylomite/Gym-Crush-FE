@@ -4,7 +4,7 @@ import LoginSignUpPage from "./LoginSignUpPage/LoginSignUpPage.tsx";
 import Logo from './assets/gymCrushLogo.png'
 
 function App() {
-  return <main className="bg-purple-600">
+  return <main className="bg-purple-600 h-100%">
     <Link className="logo" to={'/'}>
       <img className="logo w-1/4 object-contain" 
       src={Logo} 
