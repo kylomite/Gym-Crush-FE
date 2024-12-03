@@ -4,9 +4,9 @@ import LoginSignUpPage from "./LoginSignUpPage/LoginSignUpPage.tsx";
 import Logo from './assets/gymCrushLogo.png'
 
 function App() {
-  return <main className='app'>
+  return <main className="bg-purple-600">
     <Link className="logo" to={'/'}>
-      <img className="logo w-32 h-32 object-contain" 
+      <img className="logo w-1/4 object-contain" 
       src={Logo} 
       alt="Gym Crush Logo" />
     </Link>

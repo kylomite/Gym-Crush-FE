@@ -1,6 +1,5 @@
 import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
 import './HomePage.css'
-import LoginSignUpPage from '../LoginSignUpPage/LoginSignUpPage.tsx'
 
 function HomePage() {
   return <main>
