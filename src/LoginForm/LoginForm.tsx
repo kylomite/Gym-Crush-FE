@@ -11,12 +11,10 @@ function LoginForm() {
   const navigate = useNavigate();
 
   const handleLogin = async(event: React.FormEvent) => {
-    console.log("test")
     event.preventDefault()
 
     try {
       const userData = await login(loginEmail, loginPassword);
-      // Navigate to user-overview and pass userData
       navigate("/user-overview", { state: { user: userData } });
     } catch (err) {
       setError("Login failed. Please try again.");

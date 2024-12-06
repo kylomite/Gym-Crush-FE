@@ -1,15 +1,31 @@
 import { useState } from 'react'
 import './SignUpForm.css'
+import { signUp } from '../services/authServices';
+import { useNavigate } from 'react-router-dom';
 
 function SignUpForm() {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSignUp = async(event: React.FormEvent) => {
+    event.preventDefault()
+
+    try {
+      const userData = await signUp(firstName, lastName, email, password);
+      navigate("/user-overview", { state: { user: userData } });
+    } catch (err) {
+      setError("Login failed. Please try again.");
+    }
+  }
 
   return <section>
     <h2>Sign Up!</h2>
-    <form className="sign-up-form">
+    <form className="sign-up-form" onSubmit={handleSignUp}>
       <label htmlFor="fname">First Name:</label><br/>
       <input 
         type="text" 
@@ -51,7 +67,8 @@ function SignUpForm() {
         onChange={ event => setPassword(event.target.value) }
       /><br/>
       <button 
-        className="bg-pink-200 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+        className="bg-pink-200 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        type="submit">
         Submit
       </button>
     </form>
